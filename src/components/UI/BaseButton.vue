@@ -5,8 +5,8 @@
 
 <script>
 export default {
-  props: ['type', 'mode']
-}
+  props: ['type', 'mode'],
+};
 </script>
 
 <style scoped>

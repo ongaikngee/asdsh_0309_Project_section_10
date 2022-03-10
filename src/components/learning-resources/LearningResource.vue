@@ -4,7 +4,6 @@
       <header>
         <h3>{{ title }}</h3>
         <base-button mode="flat">Delete</base-button>
-
       </header>
       <p>{{ description }}</p>
       <nav>
@@ -15,15 +14,14 @@
 </template>
 
 <script>
-
-import BaseButton from "@/components/UI/BaseButton";
+import BaseButton from '@/components/UI/BaseButton';
 export default {
-  components: {BaseButton},
+  components: { BaseButton },
   props: ['title', 'description', 'link'],
   data() {
-    return {}
-  }
-}
+    return {};
+  },
+};
 </script>
 
 <style scoped>

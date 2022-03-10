@@ -6,8 +6,8 @@
 
 <script>
 export default {
-  props: ['title']
-}
+  props: ['title'],
+};
 </script>
 
 <style scoped>
@@ -24,5 +24,4 @@ header h1 {
   color: white;
   margin: 0;
 }
-
 </style>

@@ -1,19 +1,18 @@
 <template>
   <the-header title="Remember Me"></the-header>
-  <TheResource/>
-
+  <TheResource />
 </template>
 
 <script>
-
-import TheHeader from "./components/layouts/TheHeader.vue";
-import TheResource from "./components/learning-resources/TheResource.vue";
+import TheHeader from './components/layouts/TheHeader.vue';
+import TheResource from './components/learning-resources/TheResource.vue';
 
 export default {
   components: {
-    TheHeader, TheResource
-  }
-}
+    TheHeader,
+    TheResource,
+  },
+};
 </script>
 
 <style>

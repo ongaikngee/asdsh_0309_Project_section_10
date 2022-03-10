@@ -1,41 +1,69 @@
 <template>
   <h2>Add Resource</h2>
+  <base-dialog v-if="inputIsInvalid" title="Invalid Input">
+    <template #default>
+      <p>This is where you error will show</p>
+      <p>Please check all input</p>
+    </template>
+    <template #actions>
+      <button @click="confirmError">Okay</button>
+    </template>
+  </base-dialog>
   <base-card>
     <form @submit.prevent="submitData">
-      <div class='form-control'>
+      <div class="form-control">
         <label for="title">Title</label>
-        <input id="title" name="title" type="text" ref="titleInput"/>
+        <input id="title" name="title" type="text" ref="titleInput" />
       </div>
-      <div class='form-control'>
+      <div class="form-control">
         <label for="description">Description</label>
-        <textarea id="description" name="description" rows="3" ref="descInput"></textarea>
+        <textarea
+          id="description"
+          name="description"
+          rows="3"
+          ref="descInput"
+        ></textarea>
       </div>
-      <div class='form-control'>
+      <div class="form-control">
         <label for="link">Link</label>
-        <input id="link" name="link" type="url" ref="linkInput"/>
+        <input id="link" name="link" type="url" ref="linkInput" />
       </div>
       <div>
-        <button type='submit'>Add Resource</button>
+        <button type="submit">Add Now</button>
       </div>
     </form>
   </base-card>
 </template>
 <script>
-
 export default {
   inject: ['addResource'],
-  methods:{
-    submitData(){
+  data() {
+    return {
+      inputIsInvalid: false,
+    };
+  },
+  methods: {
+    submitData() {
       const enteredTitle = this.$refs.titleInput.value;
       const enteredDescription = this.$refs.descInput.value;
       const enteredUrl = this.$refs.linkInput.value;
 
       this.addResource(enteredTitle, enteredDescription, enteredUrl);
 
-    }
-
-  }
-}
+      if (
+        enteredTitle.trim() === '' ||
+        enteredDescription.trim() === '' ||
+        enteredUrl.trim() === ''
+      ) {
+        this.inputIsInvalid = true;
+        return;
+      }
+    },
+    confirmError() {
+      this.inputIsInvalid = false;
+    },
+  },
+};
 </script>
 
 <style scoped>
